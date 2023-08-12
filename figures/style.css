@@ -1,0 +1,62 @@
+.container {
+    position: relative;
+    width: 50vw;
+    height: 50vw;
+    overflow: hidden;
+    background: rgb(230,73,255);
+    background: linear-gradient(90deg, rgba(230,73,255,1) 0%, rgba(217,217,255,1) 40%, rgba(0,212,255,1) 100%);
+    border-radius: 50%;
+}
+
+.shape {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 2s, opacity 1s;
+    animation: rotate 10s infinite linear;
+}
+@keyframes rotate {
+    0% {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+@keyframes rotate-invice {
+    0% {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+        opacity:0;
+    }
+    50%{
+        opacity:1;
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        opacity: 0;
+    }
+}
+
+.circle {
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid green;
+}
+
+.square {
+    background-color: red;
+}
+
+.rectangle {
+    width: 150px;
+    height: 100px;
+    background-color: yellow;
+}

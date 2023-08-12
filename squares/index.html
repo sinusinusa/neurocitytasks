@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Случайные квадратики с индивидуальными цветами и анимацией</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border-radius: 4px;
+            animation: colorChange 2s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0%, 100% {
+                background-color: var(--color1);
+            }
+            50% {
+                background-color: var(--color2);
+            }
+        }
+    </style>
+</head>
+<body>
+<script>
+    const minSquares = 10;
+    const maxSquares = 100;
+    const numSquares = Math.floor(Math.random() * (maxSquares - minSquares + 1)) + minSquares;
+
+    for (let i = 0; i < numSquares; i++) {
+        const square = document.createElement('div');
+        square.className = 'square';
+        const color1 = getRandomColor();
+        square.style.setProperty('--color1', color1);
+        const color2 = getRandomColor();
+        square.style.setProperty('--color2', color2);
+        document.body.appendChild(square);
+    }
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+</body>
+</html>
